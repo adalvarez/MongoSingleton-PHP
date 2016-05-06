@@ -20,8 +20,8 @@ MongoSingleton establece una conexión cliente Mongo DB con PHP.
 
     foreach ( $cursor as $id => $value )
     {
-	print json_encode( $value );
-	echo "<br/>";
+        print json_encode( $value );
+        echo "<br/>";
     }
   }
 
