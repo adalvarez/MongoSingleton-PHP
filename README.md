@@ -11,16 +11,18 @@ MongoSingleton establece una conexión cliente Mongo DB con PHP.
   
   $databaseConn = MongoSingleton::connect(<"usuario">,<"contraseña">,<"nombreBaseDatos">);
   
+  // Cuando se obtiene la conexión a la base de datos ya se pueden efectuar todas las transacciones requeridas
+  
   if($databaseConn != null)
   {
     // Ejemplo de una consulta find de la colección usuarios
-    $cursor = $database->usuarios->find();
+    $cursor = $databaseConn->usuarios->find();
 
-		foreach ( $cursor as $id => $value )
-		{
-		    print json_encode( $value );
-		    echo "<br/>";
-		}
+    foreach ( $cursor as $id => $value )
+    {
+	print json_encode( $value );
+	echo "<br/>";
+    }
   }
 
 ?>
